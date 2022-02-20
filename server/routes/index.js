@@ -10,7 +10,7 @@ import App from '../../client/app';
 const router = express.Router();
 
 const renderRequestPage = async (pageName) => {
-  const pagePath = path.resolve(`./dist/public/${pageName}.html`);
+  const pagePath = path.resolve(`public/${pageName}.html`);
   const requestPage = await fs.promises.readFile(pagePath, 'utf8');
   return requestPage;
 };
