@@ -1,15 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { increment } from '../server/store/reducers/counterSlice';
-
-function useOnlineStatus({ status }) {
-  const [onlineStatus, setOnlineStatus] = useState(status);
-  return [onlineStatus, setOnlineStatus];
-}
+import TimeComponent from './time';
 
 function App() {
-  const [status] = useOnlineStatus({ status: true });
-
   const count = useSelector((state) => state.counter.value);
   const dispatch = useDispatch();
   const onIncrement = () => {
@@ -17,7 +11,7 @@ function App() {
   };
   return (
     <div>
-      {status && (<p>Online</p>)}
+      <TimeComponent/>
       <p>
         Hello world...  from react
         {count}
