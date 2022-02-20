@@ -13,7 +13,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-app.use('/', usersRouter);
+app.use('/', (req, res)=>{res.send("test information...")});
 app.use('/users', usersRouter);
 app.use(express.static(path.join(__dirname, './public')));
 
