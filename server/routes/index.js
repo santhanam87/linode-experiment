@@ -23,7 +23,7 @@ const BuildAppComponentString = (store) => ReactDOMServer.renderToString(
 
 /* GET home page. */
 router.get('/', async (req, res) => {
-  const requestPage = await renderRequestPage('index');
+  //const requestPage = await renderRequestPage('index');
   const store = buildStore({ counter: { value: 10 } });
   const appString = BuildAppComponentString(store);
   // const resData = requestPage
