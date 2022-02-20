@@ -25,4 +25,6 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: 'yarn'
       - run: yarn install
+      - run: pm2 stop linode-experiment
       - run: yarn build
+      - run: pm2 start dist/server.cjs --name linode-experiment
