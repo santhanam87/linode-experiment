@@ -3,8 +3,6 @@ import path from 'path';
 import ReactDOMServer from 'react-dom/server';
 import React from 'react';
 import fs from 'fs';
-import { Provider } from 'react-redux';
-import buildStore from '../store/store';
 import App from '../../client/app';
 
 const router = express.Router();
@@ -15,22 +13,17 @@ const renderRequestPage = async (pageName) => {
 	return requestPage;
 };
 
-const BuildAppComponentString = (store) =>
-	ReactDOMServer.renderToString(
-		<Provider store={store}>
-			<App />
-		</Provider>
-	);
+const BuildAppComponentString = () => ReactDOMServer.renderToString(<App />);
 
 /* GET home page. */
 router.get('/', async (req, res) => {
 	try {
 		const requestPage = await renderRequestPage('index');
-		const store = buildStore({ counter: { value: 10 } });
-		const appString = BuildAppComponentString(store);
-		const resData = requestPage
-			.replace('<div id="root"></div>', `<div id="root">${appString}</div>`)
-			.replace('__PRELOADED_STATE_DATA', JSON.stringify(store.getState()));
+		const appString = BuildAppComponentString();
+		const resData = requestPage.replace(
+			'<div id="root"></div>',
+			`<div id="root">${appString}</div>`
+		);
 		res.send(resData);
 	} catch (e) {
 		res.send(e);

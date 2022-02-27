@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+  backend-server:
+    container_name: front-end-webserver
+    build: .
+    restart: always
+    ports:
+      - "8000:8000"
+    networks:
+      - linode-devops-experiment
+networks:
+  linode-devops-experiment:
+    external: true
+
+
+
+    

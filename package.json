@@ -18,11 +18,8 @@
     "watch:dev": "nodemon"
   },
   "dependencies": {
+    "@apollo/client": "^3.5.9",
     "@babel/polyfill": "^7.12.1",
-    "@reduxjs/toolkit": "^1.7.1",
-    "apollo-server": "^3.6.3",
-    "apollo-server-core": "^3.6.3",
-    "apollo-server-express": "^3.6.3",
     "cookie-parser": "~1.4.4",
     "core-js": "^3.21.0",
     "debug": "^4.3.3",

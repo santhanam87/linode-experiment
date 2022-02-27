@@ -1,14 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux';
+import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
 
 import App from './app';
-import CreateStore from '../server/store/store';
+
+const client = new ApolloClient({
+	uri: 'http://localhost:3000',
+	cache: new InMemoryCache(),
+});
 
 ReactDOM.hydrate(
 	// eslint-disable-next-line no-underscore-dangle
-	<Provider store={CreateStore(window.__PRELOADED_STATE_)}>
+	<ApolloProvider client={client}>
 		<App />
-	</Provider>,
+	</ApolloProvider>,
 	document.getElementById('root')
 );

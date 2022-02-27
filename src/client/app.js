@@ -1,24 +1,22 @@
-import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { increment } from '../server/store/reducers/counterSlice';
+import React, { useState } from 'react';
 import TimeComponent from './time';
-
+import AddBook from './addBook';
 function App() {
-  const count = useSelector((state) => state.counter.value);
-  const dispatch = useDispatch();
-  const onIncrement = () => {
-    dispatch(increment());
-  };
-  return (
-    <div>
-      <TimeComponent/>
-      <p>
-        Hello world...  from react
-        {count}
-        <button type="button" onClick={onIncrement}>+</button>
-      </p>
-    </div>
-  );
+	const [currentState, setState] = useState(false);
+	return (
+		<div>
+			<p>Hello world... from react</p>
+			{currentState && <TimeComponent />}
+			<button
+				type="button"
+				onClick={() => {
+					setState(!currentState);
+				}}
+			>
+				Load
+			</button>
+		</div>
+	);
 }
 
 export default App;
