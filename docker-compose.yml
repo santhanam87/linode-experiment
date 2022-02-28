@@ -1,7 +1,7 @@
 version: '3'
 
 services:
-  backend-server:
+  frontend-server:
     container_name: front-end-webserver
     build: .
     restart: always
@@ -9,6 +9,7 @@ services:
       - "8000:8000"
     networks:
       - linode-devops-experiment
+      
 networks:
   linode-devops-experiment:
     external: true

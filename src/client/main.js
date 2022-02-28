@@ -5,7 +5,7 @@ import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
 import App from './app';
 
 const client = new ApolloClient({
-	uri: 'http://23.239.26.178:3000',
+	uri: '/gql', // TODO: yet to figure out how to connect with nodemon
 	cache: new InMemoryCache(),
 });
 

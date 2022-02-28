@@ -3,9 +3,9 @@ import TimeComponent from './time';
 import AddBook from './addBook';
 function App() {
 	const [currentState, setState] = useState(false);
+	const [showAddBook, showHideAddBook] = useState(false);
 	return (
 		<div>
-			<p>Hello world... from react</p>
 			{currentState && <TimeComponent />}
 			<button
 				type="button"
@@ -13,7 +13,16 @@ function App() {
 					setState(!currentState);
 				}}
 			>
-				Load
+				Load Books
+			</button>
+			{showAddBook && <AddBook />}
+			<button
+				type="button"
+				onClick={() => {
+					showHideAddBook(!showAddBook);
+				}}
+			>
+				Add New
 			</button>
 		</div>
 	);

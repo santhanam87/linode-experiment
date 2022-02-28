@@ -29,8 +29,6 @@ const AddBook = () => {
 
 	return (
 		<form>
-			{data && JSON.stringify(data)}
-
 			<div className="formGroup">
 				<label>Book Title</label>
 				<input type="text" onChange={onBookTitleChange} value={title} />
