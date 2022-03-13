@@ -5,7 +5,7 @@ import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
 import App from './app';
 
 const client = new ApolloClient({
-	uri: 'http://localhost:3000', // TODO: yet to figure out how to connect with nodemon
+	uri: 'http://backend-server:3000', // TODO: yet to figure out how to connect with nodemon
 	cache: new InMemoryCache().restore(window.__initialState__),
 });
 
