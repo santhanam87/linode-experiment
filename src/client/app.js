@@ -6,7 +6,7 @@ function App() {
 	const [showAddBook, showHideAddBook] = useState(false);
 	return (
 		<div>
-			<h1>Update Front end repo update.</h1>
+			<h1>Another frontend update to test watchtower</h1>
 			<TimeComponent/>
 			<AddBook />
 		</div>
