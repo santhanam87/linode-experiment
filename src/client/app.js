@@ -6,6 +6,7 @@ function App() {
 	const [showAddBook, showHideAddBook] = useState(false);
 	return (
 		<div>
+			<h1>Update header test</h1>
 			<TimeComponent/>
 			<AddBook />
 		</div>
