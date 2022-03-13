@@ -6,24 +6,8 @@ function App() {
 	const [showAddBook, showHideAddBook] = useState(false);
 	return (
 		<div>
-			{currentState && <TimeComponent />}
-			<button
-				type="button"
-				onClick={() => {
-					setState(!currentState);
-				}}
-			>
-				Load Books
-			</button>
-			{showAddBook && <AddBook />}
-			<button
-				type="button"
-				onClick={() => {
-					showHideAddBook(!showAddBook);
-				}}
-			>
-				Add New
-			</button>
+			<TimeComponent/>
+			<AddBook />
 		</div>
 	);
 }

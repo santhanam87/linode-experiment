@@ -11,17 +11,18 @@
   "type": "module",
   "scripts": {
     "start": "node ./src/server/bin/www",
-    "watch": "node --inspect dist/server.cjs",
+    "run": "node --inspect dist/server.cjs",
     "build": "webpack --config webpack.config.js",
-    "dev": "npm-run-all build watch",
+    "dev": "npm-run-all build run",
     "build:module": "webpack --config es6.webpack.config.js",
-    "watch:dev": "nodemon"
+    "watch": "nodemon"
   },
   "dependencies": {
     "@apollo/client": "^3.5.9",
     "@babel/polyfill": "^7.12.1",
     "cookie-parser": "~1.4.4",
     "core-js": "^3.21.0",
+    "cross-fetch": "^3.1.5",
     "debug": "^4.3.3",
     "express": "~4.16.1",
     "graphql": "^16.3.0",
