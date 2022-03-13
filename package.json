@@ -13,7 +13,7 @@
     "start": "node ./src/server/bin/www",
     "serve": "node --inspect dist/server.cjs",
     "build": "webpack --config webpack.config.js",
-    "dev": "npm-run-all build run",
+    "dev": "npm-run-all build serve",
     "watch": "nodemon"
   },
   "dependencies": {

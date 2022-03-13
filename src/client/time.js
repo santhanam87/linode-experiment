@@ -14,8 +14,8 @@ const TimeComponent = () => {
 
 	if (loading) return <p>Loading...</p>;
 	if (error) return <p>Error :(</p>;
-	return data.books.map(({ title, author }) => (
-		<div key={title}>
+	return data.books.map(({ title, author }, index) => (
+		<div key={title+ index}>
 			<p>
 				{title}: {author}
 			</p>
