@@ -11,10 +11,9 @@
   "type": "module",
   "scripts": {
     "start": "node ./src/server/bin/www",
-    "run": "node --inspect dist/server.cjs",
+    "serve": "node --inspect dist/server.cjs",
     "build": "webpack --config webpack.config.js",
     "dev": "npm-run-all build run",
-    "build:module": "webpack --config es6.webpack.config.js",
     "watch": "nodemon"
   },
   "dependencies": {
@@ -24,6 +23,7 @@
     "core-js": "^3.21.0",
     "cross-fetch": "^3.1.5",
     "debug": "^4.3.3",
+    "dotenv": "^16.0.0",
     "express": "~4.16.1",
     "graphql": "^16.3.0",
     "morgan": "~1.9.1",

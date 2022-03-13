@@ -3,9 +3,9 @@ import ReactDOM from 'react-dom';
 import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
 
 import App from './app';
-
+console.info('*****',BACKEND_URL);
 const client = new ApolloClient({
-	uri: 'http://backend-server:3000', // TODO: yet to figure out how to connect with nodemon
+	uri: `http://${BACKEND_URL}`,
 	cache: new InMemoryCache().restore(window.__initialState__),
 });
 

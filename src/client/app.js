@@ -6,7 +6,6 @@ function App() {
 	const [showAddBook, showHideAddBook] = useState(false);
 	return (
 		<div>
-			<TimeComponent/>
 			<AddBook />
 		</div>
 	);

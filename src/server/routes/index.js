@@ -24,7 +24,7 @@ router.get('/', async (req, res) => {
 		const apolloClient = new ApolloClient({
 			ssrMode: true,
 			link: createHttpLink({
-				uri: 'http://backend-server:3000',
+				uri: `http://${BACKEND_URL}:3000`,
 				fetch,
 			}),
 			cache: new InMemoryCache()

@@ -2,11 +2,13 @@ import path, { dirname } from 'path';
 import { fileURLToPath } from 'url';
 import HtmlWebPackPlugin from 'html-webpack-plugin';
 import NodeExternals from 'webpack-node-externals';
+import Webpack from 'webpack';
+import dotenv from 'dotenv';
 
 const fileLocation = fileURLToPath(import.meta.url);
 const currentDirectory = dirname(fileLocation);
-
-export default [
+dotenv.config();
+export default ()=>[
 	{
 		entry: { browser: './src/client/main.js' },
 		mode: 'development',
@@ -18,6 +20,9 @@ export default [
 			new HtmlWebPackPlugin({
 				template: './src/client/index.html',
 			}),
+			new Webpack.DefinePlugin({
+				BACKEND_URL:JSON.stringify(process.env.SERVICE_URL)
+			})
 		],
 		module: {
 			rules: [
@@ -50,6 +55,11 @@ export default [
 			extensions: ['.wasm', '.mjs', '.js', '.json', '.dust'],
 			modules: ['node_modules'],
 		},
+		plugins: [
+			new Webpack.DefinePlugin({
+				BACKEND_URL:JSON.stringify(process.env.SERVICE_URL)
+			})
+		],
 		module: {
 			rules: [
 				{
