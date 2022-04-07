@@ -1,17 +1,19 @@
+/* eslint-disable no-undef */
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
 
 import App from './app';
-console.info('*****',BACKEND_URL);
+
 const client = new ApolloClient({
-	uri: `http://${BACKEND_URL}`,
-	cache: new InMemoryCache().restore(window.__initialState__),
+  uri: `http://${BACKEND_URL}`,
+  // eslint-disable-next-line no-underscore-dangle
+  cache: new InMemoryCache().restore(window.__initialState__),
 });
 
 ReactDOM.hydrate(
-	<ApolloProvider client={client}>
-		<App />
-	</ApolloProvider>,
-	document.getElementById('root')
+  <ApolloProvider client={client}>
+    <App />
+  </ApolloProvider>,
+  document.getElementById('root')
 );

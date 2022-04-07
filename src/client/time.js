@@ -1,26 +1,19 @@
 import React from 'react';
-import { useQuery, gql } from '@apollo/client';
-const EXCHANGE_RATES = gql`
-	query GetBooks {
-		books {
-			title
-			author
-		}
-	}
-`;
+import { useQuery } from '@apollo/client';
+import BooksQuery from '../queries/books.graphql';
 
-const TimeComponent = () => {
-	const { loading, error, data } = useQuery(EXCHANGE_RATES);
-
-	if (loading) return <p>Loading...</p>;
-	if (error) return <p>Error :(</p>;
-	return data.books.map(({ title, author }, index) => (
-		<div key={title+ index}>
-			<p>
-				{title}: {author}
-			</p>
-		</div>
-	));
-};
+function TimeComponent() {
+  const { loading, error, data } = useQuery(BooksQuery);
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error :(</p>;
+  return data.books.map(({ title, author }) => (
+    <div key={title}>
+      <p>
+        {author}
+        {title}
+      </p>
+    </div>
+  ));
+}
 
 export default TimeComponent;
